@@ -32,6 +32,9 @@ set laststatus=2
 " Smartident on
 set smartindent
 
+filetype on
+filetype plugin on
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
    set mouse=i
