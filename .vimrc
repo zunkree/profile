@@ -16,8 +16,6 @@ set termencoding=utf-8
 set hidden
 " Auntoindent
 set autoindent
-" Syntax highylight
-syntax on
 " allow to use backspace instead of "x"
 " set backspace=indent,eol,start whichwrap+=<,>,[,]
 " Tab to space
@@ -32,6 +30,10 @@ set laststatus=2
 " Smartident on
 set smartindent
 
+set modeline
+
+" Syntax highlight
+syntax on
 filetype on
 filetype plugin on
 

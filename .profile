@@ -22,7 +22,3 @@ PAGER=more;     export PAGER
 ENV=$HOME/.shrc; export ENV
 
 if [ -x /usr/games/fortune ] ; then /usr/games/fortune freebsd-tips ; fi
-
-if [[ -z "$STY" ]] ; then
-   screen -dR
-fi
