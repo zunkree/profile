@@ -23,3 +23,7 @@ elif [ -x "`which joe 2>/dev/null`" ]
 fi
 
 alias ls='ls -G'
+
+if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
+	ource /etc/profile.d/bash-completion.sh
+fi
