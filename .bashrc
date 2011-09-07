@@ -16,10 +16,10 @@ export	PATH=$PATH:/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/
 # export	TERM=cons25
 export	BLOCKSIZE=K
 export	PAGER=less
-if [ -e /usr/local/bin/vim ] ; then
-	export EDITOR=/usr/local/bin/vim
-else
-	export EDITOR=/usr/local/bin/joe
+if [ -x "`which vim 2>/dev/null`" ] ; then
+	export EDITOR=`which vim`
+elif [ -x "`which joe 2>/dev/null`" ]
+	export EDITOR=`which joe`
 fi
 
 alias ls='ls -G'
