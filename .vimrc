@@ -1,7 +1,7 @@
 " Off VI compatible mode
 set nocompatible
 " Show line number
-set number
+set nonumber
 " Show cursor position all time
 set ruler
 " Show command
