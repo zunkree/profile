@@ -1,7 +1,7 @@
 *
 !.bashrc
-!.git
 !.gitignore
+!.profile
 !.screenrc
 !.tmux.conf
 !.vim

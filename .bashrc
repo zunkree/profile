@@ -18,7 +18,7 @@ export	BLOCKSIZE=K
 export	PAGER=less
 if [ -x "`which vim 2>/dev/null`" ] ; then
 	export EDITOR=`which vim`
-elif [ -x "`which joe 2>/dev/null`" ]
+elif [ -x "`which joe 2>/dev/null`" ] ; then
 	export EDITOR=`which joe`
 fi
 
