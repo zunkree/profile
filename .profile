@@ -23,3 +23,10 @@ export PAGER=less
 ENV=$HOME/.shrc; export ENV
 
 if [ -x /usr/games/fortune ] ; then /usr/games/fortune freebsd-tips ; fi
+
+if [[ "`uname`" == "FreeBSD" ]] ; then
+	alias ls='ls -G'
+else
+	alias ls='ls --color=auto'
+fi
+alias grep='grep --colour=auto'

@@ -23,3 +23,10 @@ alias ls='ls -G'
 if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
 	source /etc/profile.d/bash-completion.sh
 fi
+
+if [[ "`uname`" == "FreeBSD" ]] ; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
+alias grep='grep --colour=auto'
