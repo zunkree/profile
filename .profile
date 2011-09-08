@@ -6,7 +6,8 @@
 #
 
 # remove /usr/games if you want
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin
+
 
 # Setting TERM is normally done through /etc/ttys.  Do only override
 # if you're sure that you'll never log in via telnet or xterm or a
@@ -14,9 +15,9 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HO
 # Use cons25l1 for iso-* fonts
 # TERM=cons25;  export TERM
 
-BLOCKSIZE=K;    export BLOCKSIZE
-EDITOR=vim;     export EDITOR
-PAGER=more;     export PAGER
+export BLOCKSIZE=K
+export EDITOR=vim
+export PAGER=less
 
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
