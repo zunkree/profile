@@ -6,7 +6,7 @@
 #
 
 # remove /usr/games if you want
-export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH
 
 
 # Setting TERM is normally done through /etc/ttys.  Do only override
