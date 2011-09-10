@@ -6,3 +6,6 @@
 !.tmux.conf
 !.vim
 !.vimrc
+!bin
+!bin/*
+bin/*~
