@@ -5,7 +5,11 @@
 !.screenrc
 !.tmux.conf
 !.vim
+!.vim/
+!.vim/*
 !.vimrc
 !bin
+!bin/
 !bin/*
 bin/*~
+.vim/.*
