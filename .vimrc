@@ -41,12 +41,12 @@ filetype plugin on
 set mouse=i
 
 if expand('%:p:h') == '/usr/local/etc/apache22/Includes' 
-    autocmd BufNewFile *.conf 0r .vim/skel/conf/apache_vhost.conf 
+    autocmd BufNewFile *.conf 0r .vim/skel/conf/vhost_apache.conf 
     autocmd BufNewFile *.conf call s:format_vhost() 
 en
 
 if expand('%:p:h') == '/usr/local/etc/nginx/include' 
-    autocmd BufNewFile *.conf 0r .vim/skel/conf/nginx_vhost.conf 
+    autocmd BufNewFile *.conf 0r .vim/skel/conf/vhost_nginx.conf 
     autocmd BufNewFile *.conf call s:format_vhost()     
 en
 
