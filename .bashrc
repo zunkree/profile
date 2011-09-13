@@ -31,5 +31,5 @@ else
 fi
 alias grep='grep --colour=auto'
 
-. $HOME/.bashrc.d/prompt.sh
+#. $HOME/.bashrc.d/prompt.sh
 
