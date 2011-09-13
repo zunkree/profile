@@ -42,16 +42,16 @@ prompt_command () {
     local BRANCH=""
  
     # if we're in a Git repo, show current branch
-    if [ "\$(type -t __git_ps1)" ]; then
-        BRANCH="\$(__git_ps1 '[ %s ] ')"
-    fi
+#    if [ "\$(type -t __git_ps1)" ]; then
+#        BRANCH="\$(__git_ps1 '[ %s ] ')"
+#    fi
  
-    if [ -d ".svn" ]; then
-        BRANCH="[ "`svn info | awk '/Last\ Changed\ Rev/ {print $4}'`" ]"
-    fi
+#    if [ -d ".svn" ]; then
+#        BRANCH="[ "`svn info | awk '/Last\ Changed\ Rev/ {print $4}'`" ]"
+#    fi
  
     if [[ "`uname`" == "FreeBSD" ]] ; then
-        local LOAD=`sysctl vm.loadavg`
+        local LOAD=`sysctl vm.loadavg | cut -f2 -d:`
     else
         local LOAD="{ `cut -d' ' -f1,2,3 /proc/loadavg` }"
     fi
