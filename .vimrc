@@ -38,7 +38,7 @@ filetype on
 filetype plugin on
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-set mouse=i
+set mouse=
 
 if expand('%:p:h') == '/usr/local/etc/apache22/Includes' 
     autocmd BufNewFile *.conf 0r .vim/skel/conf/vhost_apache.conf 
