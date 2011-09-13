@@ -51,7 +51,7 @@ prompt_command () {
 #    fi
  
     if [[ "`uname`" == "FreeBSD" ]] ; then
-        local LOAD=`sysctl vm.loadavg | cut -f2 -d:`
+        local LOAD=`sysctl -n vm.loadavg`
     else
         local LOAD="{ `cut -d' ' -f1,2,3 /proc/loadavg` }"
     fi
