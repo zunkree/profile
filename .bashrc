@@ -106,6 +106,12 @@ prompt_command () {
         TC=""
         BC=""
     fi
+    if [ "$TERM" = "xterm" ]; then
+        TITLEBAR=""
+        DASH="-"
+        TC=""
+        BC=""
+    fi
  
     local SEPARATOR=""
     let FILLS=${COLUMNS}-${#PROMPT}
