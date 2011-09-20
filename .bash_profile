@@ -11,4 +11,4 @@ if [[ -f ~/.bashrc ]] ; then
     . ~/.bashrc
 fi
 
-export TERM=xterm-256color
+# export TERM=xterm-256color
