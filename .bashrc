@@ -7,13 +7,9 @@
 # serial line.
 # Use cons25l1 for iso-* fonts
 # export	TERM=cons25
-export	BLOCKSIZE=K
-export	EDITOR=vim
-if [ -x "`which vimpager`" ] ; then
-    export PAGER=vimpager
-else
-    export PAGER=less
-fi
+BLOCKSIZE=K;    export BLOCKSIZE
+EDITOR=vim;     export EDITOR
+PAGER=less;     export PAGER
 
 if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
 	source /etc/profile.d/bash-completion.sh

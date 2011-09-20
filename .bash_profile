@@ -4,7 +4,7 @@
 
 # remove /usr/games if you want
 if [[ "`uname`" != "FreeBSD" ]] ; then
-    export PATH=$PATH:$HOME/bin
+    PATH=$PATH:$HOME/bin; export PATH
 fi
 
 if [[ -f ~/.bashrc ]] ; then
