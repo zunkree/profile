@@ -32,6 +32,8 @@ set smartindent
 
 set modeline
 
+set backupdir=~/.vim/backup/
+
 " Syntax highlight
 syntax on
 filetype on
