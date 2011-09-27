@@ -7,17 +7,28 @@
 # serial line.
 # Use cons25l1 for iso-* fonts
 # export	TERM=cons25
-BLOCKSIZE=K;    export BLOCKSIZE
-EDITOR=vim;     export EDITOR
-PAGER=less;     export PAGER
+UNAME="`uname`";    export UNAME
+BLOCKSIZE=K;        export BLOCKSIZE
+EDITOR=vim;         export EDITOR
+PAGER=less;         export PAGER
+
+if [[ "${UNAME}" == "FreeBSD" ]] ; then
+    JAILED="`sysctl -n security.jail.jailed`";  export JAILED
+fi
 
 if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
 	source /etc/profile.d/bash-completion.sh
 fi
 
-if [[ "`uname`" == "FreeBSD" ]] ; then
+if [[ "${UNAME}" == "FreeBSD" ]] ; then
     alias ls='ls -G'
 else
     alias ls='ls --color=auto'
 fi
 alias grep='grep --colour=auto'
+
+if [[ -d ${HOME}/.bashrc.d ]] ; then
+    for rc in ${HOME}/.bashrc.d/*rc ; do
+        source ${rc}
+    done
+fi
