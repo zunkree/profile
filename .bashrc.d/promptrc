@@ -34,7 +34,7 @@ if [[ "${UNAME}" == "FreeBSD" ]] ; then
     else
         if [[ ${EUID} == 0 ]] ; then
             # show root@ when we don't have colors
-            PS1='\u@\h \W \$ '
+            PS1='\u@\h \w \$ '
         else
             PS1='\u@\h \w \$ '
         fi
