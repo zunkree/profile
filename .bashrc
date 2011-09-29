@@ -7,20 +7,20 @@
 # serial line.
 # Use cons25l1 for iso-* fonts
 # export	TERM=cons25
-UNAME="`uname`";    export UNAME
+ZNKR_UNAME="`uname`";    export ZNKR_UNAME
 BLOCKSIZE=K;        export BLOCKSIZE
 EDITOR=vim;         export EDITOR
 PAGER=less;         export PAGER
 
 if [[ "${UNAME}" == "FreeBSD" ]] ; then
-    JAILED="`sysctl -n security.jail.jailed`";  export JAILED
+    ZNKR_JAILED="`sysctl -n security.jail.jailed`";  export ZNKR_JAILED
 fi
 
 if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
 	source /etc/profile.d/bash-completion.sh
 fi
 
-if [[ "${UNAME}" == "FreeBSD" ]] ; then
+if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
     alias ls='ls -G'
 else
     alias ls='ls --color=auto'
