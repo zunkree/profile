@@ -12,7 +12,7 @@ BLOCKSIZE=K;        export BLOCKSIZE
 EDITOR=vim;         export EDITOR
 PAGER=less;         export PAGER
 
-if [[ "${UNAME}" == "FreeBSD" ]] ; then
+if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
     ZNKR_JAILED="`sysctl -n security.jail.jailed`";  export ZNKR_JAILED
 fi
 
