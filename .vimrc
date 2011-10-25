@@ -42,13 +42,22 @@ filetype plugin on
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=
 
+inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
+
+au FileType crontab,fstab,make set noet ts=8 sw=8 
+
 if expand('%:p:h') == '/usr/local/etc/apache22/Includes' 
-    autocmd BufNewFile *.conf 0r .vim/skel/conf/vhost_apache.conf 
+    autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_apache.conf 
     autocmd BufNewFile *.conf call s:format_vhost() 
 en
 
 if expand('%:p:h') == '/usr/local/etc/nginx/include' 
-    autocmd BufNewFile *.conf 0r .vim/skel/conf/vhost_nginx.conf 
+    autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_nginx.conf 
+    autocmd BufNewFile *.conf call s:format_vhost()     
+en
+
+if expand('%:p:h') == '/usr/local/etc/nginx/Include' 
+    autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_nginx.conf 
     autocmd BufNewFile *.conf call s:format_vhost()     
 en
 
