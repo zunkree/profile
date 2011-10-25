@@ -56,7 +56,7 @@ if expand('%:p:h') == '/usr/local/etc/nginx/include'
     autocmd BufNewFile *.conf call s:format_vhost()     
 en
 
-if expand('%:p:h') == '/usr/local/etc/nginx/Include' 
+if expand('%:p:h') == '/usr/local/etc/nginx/Includes' 
     autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_nginx.conf 
     autocmd BufNewFile *.conf call s:format_vhost()     
 en
