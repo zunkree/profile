@@ -32,3 +32,8 @@ if [[ -d ${HOME}/.bashrc.d ]] ; then
         source ${rc}
     done
 fi
+if [[ "${ZNKR_UNAME}" == "Linux"  ]] ; then
+    export LANG="ru_RU.utf8"
+fi
+
+# vim: ft=sh
