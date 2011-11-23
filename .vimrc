@@ -72,3 +72,7 @@ function! s:format_vhost()
     execute 'w' 
     set report=2 
 endfunction
+
+""" PythonMode
+" Disable pylint checking every save
+let g:pymode_lint_write = 0
