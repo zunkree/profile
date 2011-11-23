@@ -7,7 +7,7 @@ set ruler
 " Show command
 set showcmd
 " Set indent folding method
-" set foldmethod=indent
+set foldmethod=indent
 " 
 set incsearch
 " 
@@ -17,7 +17,7 @@ set hidden
 " Auntoindent
 set autoindent
 " allow to use backspace instead of "x"
-" set backspace=indent,eol,start whichwrap+=<,>,[,]
+set backspace=indent,eol,start whichwrap+=<,>,[,]
 " Tab to space
 set expandtab
 " Tab option
@@ -29,23 +29,27 @@ set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P
 set laststatus=2
 " Smartident on
 set smartindent
-
+"
 set modeline
-
+"
 set backupdir=~/.vim/backup/
-
+" Pathogen load
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
 " Syntax highlight
 syntax on
 filetype on
 filetype plugin on
-
-" In many terminal emulators the mouse works just fine, thus enable it.
+filetype plugin indent on
+" Disable mouse.
 set mouse=
-
+" Restore structure after past text
 inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
-
+" Not working
 au FileType crontab,fstab,make set noet ts=8 sw=8 
 
+" TODO: need refactoring -- move to separate file
 if expand('%:p:h') == '/usr/local/etc/apache22/Includes' 
     autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_apache.conf 
     autocmd BufNewFile *.conf call s:format_vhost() 
