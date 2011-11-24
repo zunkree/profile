@@ -8,6 +8,8 @@ set ruler
 set showcmd
 " Set indent folding method
 set foldmethod=indent
+set foldlevelstart=20
+set foldcolumn=1
 " 
 set incsearch
 " 
@@ -77,12 +79,12 @@ endfunction
 let python_highlight_all = 1
 autocmd FileType python normal m`:%s/\s\+$//e ``
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-" omni enable
+"" omni enable
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-" omni on ctrlspace
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
+"" omni on ctrlspace
+" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+"             \ "\<lt>C-n>" :
+"             \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+"             \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+"             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+" imap <C-@> <C-Space>
