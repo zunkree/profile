@@ -9,7 +9,7 @@ set showcmd
 " Set indent folding method
 set foldmethod=indent
 set foldlevelstart=20
-set foldcolumn=1
+" set foldcolumn=1
 " 
 set incsearch
 " 
