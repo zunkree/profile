@@ -25,7 +25,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 " Statusbar
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P 
+set statusline=%f%m%r%h%w\ %y\ enc:%{&enc}\ ff:%{&ff}\ fenc:%{&fenc}%=(ch:%3b\ hex:%2B)\ col:%2c\ line:%2l/%L\ [%2p%%] 
 set laststatus=2
 " Smartident on
 set smartindent
@@ -73,6 +73,16 @@ function! s:format_vhost()
     set report=2 
 endfunction
 
-""" PythonMode
-" Disable pylint checking every save
-let g:pymode_lint_write = 0
+""" Python
+let python_highlight_all = 1
+autocmd FileType python normal m`:%s/\s\+$//e ``
+autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+" omni enable
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+" omni on ctrlspace
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
