@@ -7,11 +7,15 @@
 # serial line.
 # Use cons25l1 for iso-* fonts
 # export	TERM=cons25
-ZNKR_UNAME="`uname`";   export ZNKR_UNAME
-BLOCKSIZE=K;            export BLOCKSIZE
-EDITOR=vim;             export EDITOR
-PAGER=less;             export PAGER
-TERM=xterm-256color     export TERM
+export ZNKR_UNAME="`uname`"
+export BLOCKSIZE=K
+export EDITOR=vim
+export PAGER=less
+if [[ -n "$TMUX" ]] ; then
+    export TERM=screen-256color
+else
+    export TERM=xterm-256color
+fi
 
 if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
     ZNKR_JAILED="`sysctl -n security.jail.jailed`";  export ZNKR_JAILED
