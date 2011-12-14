@@ -7,8 +7,4 @@ if [[ "`uname`" != "FreeBSD" ]] ; then
     PATH=$PATH:$HOME/bin; export PATH
 fi
 
-if [[ -f ~/.bashrc ]] ; then
-    . ~/.bashrc
-fi
-
-# export TERM=xterm-256color
+[[ -r ~/.bashrc ]] && source ~/.bashrc

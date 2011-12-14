@@ -11,6 +11,7 @@ ZNKR_UNAME="`uname`";    export ZNKR_UNAME
 BLOCKSIZE=K;        export BLOCKSIZE
 EDITOR=vim;         export EDITOR
 PAGER=less;         export PAGER
+TERM=xterm-256color export TERM
 
 if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
     ZNKR_JAILED="`sysctl -n security.jail.jailed`";  export ZNKR_JAILED
@@ -26,6 +27,7 @@ else
     alias ls='ls --color=auto'
 fi
 alias grep='grep --colour=auto'
+alias tmux='tmux -2'
 
 if [[ -d ${HOME}/.bashrc.d ]] ; then
     for rc in ${HOME}/.bashrc.d/*rc ; do

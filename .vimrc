@@ -35,6 +35,11 @@ set smartindent
 set modeline
 "
 set backupdir=~/.vim/backup/
+" Disable mouse.
+set mouse=
+" colors
+set t_Co=256
+colorscheme aldmeris
 " Pathogen load
 filetype off
 call pathogen#infect()
@@ -44,8 +49,6 @@ syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-" Disable mouse.
-set mouse=
 " Restore structure after past text
 inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 " Not working
@@ -80,7 +83,7 @@ let python_highlight_all = 1
 autocmd FileType python normal m`:%s/\s\+$//e ``
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 "" omni enable
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
 "" omni on ctrlspace
 " inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 "             \ "\<lt>C-n>" :
