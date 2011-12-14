@@ -12,7 +12,7 @@ export BLOCKSIZE=K
 export EDITOR=vim
 export PAGER=less
 if [[ -n "$TMUX" ]] ; then
-    export TERM=screen-256color
+    export TERM=screen
 else
     export TERM=xterm-256color
 fi
