@@ -11,35 +11,27 @@ export ZNKR_UNAME="`uname`"
 export BLOCKSIZE=K
 export EDITOR=vim
 export PAGER=less
-if [[ -n "$TMUX" ]] ; then
-    export TERM=screen
-else
-    export TERM=xterm-256color
-fi
+export TERM=xterm-256color
+[[ -n "$TMUX" ]] && export TERM=screen
 
-if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
-    ZNKR_JAILED="`sysctl -n security.jail.jailed`";  export ZNKR_JAILED
-fi
+alias grep='grep --colour=auto'
+alias tmux='tmux -2'
+
+[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && export ZNKR_JAILED="`sysctl -n security.jail.jailed`"
+[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && export LSCOLORS='ExGxFxdaCxegDahbadacec'
+[[ "${ZNKR_UNAME}" == "Linux"  ]] && export LANG="ru_RU.utf8"
+
+[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && alias ls='ls -G'
+[[ "${ZNKR_UNAME}" == "Linux"  ]] && alias ls='ls --color=auto'
 
 if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
 	source /etc/profile.d/bash-completion.sh
 fi
 
-if [[ "${ZNKR_UNAME}" == "FreeBSD" ]] ; then
-    alias ls='ls -G'
-else
-    alias ls='ls --color=auto'
-fi
-alias grep='grep --colour=auto'
-alias tmux='tmux -2'
-
 if [[ -d ${HOME}/.bashrc.d ]] ; then
     for rc in ${HOME}/.bashrc.d/*rc ; do
         source ${rc}
     done
-fi
-if [[ "${ZNKR_UNAME}" == "Linux"  ]] ; then
-    export LANG="ru_RU.utf8"
 fi
 
 # vim: ft=sh
