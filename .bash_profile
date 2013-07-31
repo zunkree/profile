@@ -1,10 +1,11 @@
-# .bash_profile - Bourne Shell startup script for login shells
-#
-# see also sh(1), environ(7).
+# /etc/skel/.bash_profile
 
-# remove /usr/games if you want
-if [[ "`uname`" != "FreeBSD" ]] ; then
-    PATH=$PATH:$HOME/bin; export PATH
+# This file is sourced by bash for login shells.  The following line
+# runs your .bashrc and is recommended by the bash info pages.
+if [ -f ${HOME}/.bashrc ]; then
+    source ${HOME}/.bashrc
 fi
 
-[[ -r ~/.bashrc ]] && source ~/.bashrc
+# Add ~/bin to PATH 
+export PATH=$PATH:$HOME/bin
+

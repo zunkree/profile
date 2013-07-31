@@ -1,37 +1,44 @@
-# .bashrc - Bourne Shell startup script for shells
+# /etc/skel/.bashrc
 #
-# see also sh(1), environ(7).
-#
-# Setting TERM is normally done through /etc/ttys.  Do only override
-# if you're sure that you'll never log in via telnet or xterm or a
-# serial line.
-# Use cons25l1 for iso-* fonts
-# export	TERM=cons25
-export ZNKR_UNAME="`uname`"
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
+fi
+
 export BLOCKSIZE=K
 export EDITOR=vim
 export PAGER=less
 export TERM=xterm-256color
+export HISTSIZE=262144
 [[ -n "$TMUX" ]] && export TERM=screen
 
 alias grep='grep --colour=auto'
 alias tmux='tmux -2'
+alias ls='ls --color=auto'
+alias ll="ls --color=auto -la"
+alias lh="ls --color=auto -lah"
 
-[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && export ZNKR_JAILED="`sysctl -n security.jail.jailed`"
-[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && export LSCOLORS='ExGxFxdaCxegDahbadacec'
-[[ "${ZNKR_UNAME}" == "Linux"  ]] && export LANG="ru_RU.utf8"
-
-[[ "${ZNKR_UNAME}" == "FreeBSD" ]] && alias ls='ls -G'
-[[ "${ZNKR_UNAME}" == "Linux"  ]] && alias ls='ls --color=auto'
-
-if [[ -f /etc/profile.d/bash-completion.sh ]] ; then
-	source /etc/profile.d/bash-completion.sh
+if [[ ${EUID} == 0 ]] ; then
+    export PS1='\[\033[01;31m\]\H\[\033[01;34m\] \w \$\[\033[00m\] '
+else
+    export PS1='\[\033[01;32m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
 
-if [[ -d ${HOME}/.bashrc.d ]] ; then
-    for rc in ${HOME}/.bashrc.d/*rc ; do
-        source ${rc}
-    done
-fi
+case ${TERM} in
+    xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+        PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}\007"'
+    ;;
+    screen)
+        PROMPT_COMMAND='echo -ne "\033_${HOSTNAME}\033\\"'
+    ;;
+esac
+
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
+[[ -r /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 
 # vim: ft=sh

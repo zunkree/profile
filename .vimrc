@@ -1,5 +1,7 @@
 " Off VI compatible mode
 set nocompatible
+" Cursor line highlighting
+set cursorline
 " Show line number
 set nonumber
 " Show cursor position all time
@@ -13,6 +15,7 @@ set foldlevelstart=20
 " 
 set incsearch
 " 
+set encoding=utf-8
 set termencoding=utf-8
 "
 set hidden
@@ -55,26 +58,36 @@ inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 au FileType crontab,fstab,make set noet ts=8 sw=8 
 
 " TODO: need refactoring -- move to separate file
-if expand('%:p:h') == '/usr/local/etc/apache22/Includes' 
+if expand('%:p:h') == '/etc/httpd/conf.d' 
     autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_apache.conf 
     autocmd BufNewFile *.conf call s:format_vhost() 
 en
 
-if expand('%:p:h') == '/usr/local/etc/nginx/include' 
+if expand('%:p:h') == '/etc/apache2/vhosts.d' 
+    autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_apache.conf 
+    autocmd BufNewFile *.conf call s:format_vhost() 
+en
+
+if expand('%:p:h') == '/etc/nginx/conf.d' 
     autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_nginx.conf 
     autocmd BufNewFile *.conf call s:format_vhost()     
 en
 
-if expand('%:p:h') == '/usr/local/etc/nginx/Includes' 
+if expand('%:p:h') == '/etc/nginx/vhosts.d' 
     autocmd BufNewFile *.conf 0r ~/.vim/skel/conf/vhost_nginx.conf 
     autocmd BufNewFile *.conf call s:format_vhost()     
+en
+
+if expand('%:p:h') == '/etc/nginx/sites-available' 
+    autocmd BufNewFile * 0r ~/.vim/skel/conf/vhost_nginx.conf 
+    autocmd BufNewFile * call s:format_vhost()     
 en
 
 function! s:format_vhost() 
     set report=999 
     let vhostname = expand('%:t:r') 
     execute '%s/%vim%vhostname%/' . vhostname . '/geI' 
-    execute 'w' 
+    " execute 'w' 
     set report=2 
 endfunction
 
@@ -91,3 +104,14 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,exce
 "             \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
 "             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 " imap <C-@> <C-Space>
+
+" vim-airline
+let g:airline_theme='dark'
+let g:airline_enable_fugitive=1
+let g:airline_enable_syntastic=1
+let g:airline_enable_bufferline=1
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
