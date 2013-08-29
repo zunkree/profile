@@ -193,6 +193,7 @@ syntax keyword iptablesModuleType
     \ icmp-net-prohibited
     \ icmp-host-prohibited
     \ icmp-admin-prohibited
+    \ icmp6-adm-prohibited
 
 " From --icmp-type option
 syntax keyword iptablesModuleType
