@@ -14,7 +14,7 @@ export BLOCKSIZE=K
 export EDITOR=vim
 export PAGER=less
 export TERM=xterm-256color
-export HISTSIZE=262144
+export HISTFILESIZE=262144
 [[ -n "$TMUX" ]] && export TERM=screen
 
 alias grep='grep --colour=auto'

@@ -38,6 +38,9 @@ set smartindent
 set modeline
 "
 set backupdir=~/.vim/backup/
+" permanent undo
+set undofile
+set undodir=~/.vim/undo/
 " Disable mouse.
 set mouse=
 " colors
